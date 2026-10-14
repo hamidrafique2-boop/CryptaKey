@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CryptaKey — A privacy-first password security studio. Generate strong passwords, analyze strength, check breaches, explore hashing, and learn cryptography. All processing happens in your browser.">
+    <meta name="author" content="Hamid Rafique">
+    <meta property="og:title" content="CryptaKey — Password Security Studio">
+    <meta property="og:description" content="Generate, analyze, and secure passwords entirely in your browser. No data ever leaves your device.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>CryptaKey — Password Security Studio</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header / Navigation -->
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <a href="#home" class="logo" aria-label="CryptaKey Home">
+                <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                    <rect x="2" y="2" width="24" height="24" rx="6" stroke="currentColor" stroke-width="2"/>
+                    <path d="M14 8v4m0 0l3 3m-3-3l-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="14" cy="17" r="2.5" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span class="logo-text">CryptaKey</span>
+            </a>
+
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+                <ul class="nav-list" role="list">
+                    <li><a href="#generator" class="nav-link" data-section="generator">Generator</a></li>
+                    <li><a href="#analyzer" class="nav-link" data-section="analyzer">Analyzer</a></li>
+                    <li><a href="#breach-check" class="nav-link" data-section="breach-check">Breach Check</a></li>
+                    <li><a href="#estimator" class="nav-link" data-section="estimator">Estimator</a></li>
+                    <li><a href="#hash-lab" class="nav-link" data-section="hash-lab">Hash Lab</a></li>
+                    <li><a href="#encoder" class="nav-link" data-section="encoder">Encoder</a></li>
+                    <li><a href="#learn" class="nav-link" data-section="learn">Learn</a></li>
+                </ul>
+            </nav>
+
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme">
+                <svg class="theme-icon theme-icon--dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                </svg>
+                <svg class="theme-icon theme-icon--light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <!-- ==================== HOME / LANDING ==================== -->
+        <section class="page page--active" id="home" data-page="home">
+            <div class="hero">
+                <div class="hero-content">
+                    <div class="hero-badge">Privacy-First · Browser-Only · Open Source</div>
+                    <h1 class="hero-title">
+                        Password Security<br>
+                        <span class="hero-title-accent">Studio</span>
+                    </h1>
+                    <p class="hero-subtitle">Generate unbreakable passwords, analyze strength, check breaches, and explore cryptography — <strong>entirely in your browser</strong>. No data ever leaves your device.</p>
+                    <div class="hero-actions">
+                        <a href="#generator" class="btn btn--primary btn--lg">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                            Generate Password
+                        </a>
+                        <a href="#learn" class="btn btn--outline btn--lg">Learn More</a>
+                    </div>
+                </div>
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="hero-grid">
+                        <div class="hero-card hero-card--gen">
+                            <div class="hero-card-icon">🔐</div>
+                            <div class="hero-card-label">Generator</div>
+                        </div>
+                        <div class="hero-card hero-card--analyze">
+                            <div class="hero-card-icon">📊</div>
+                            <div class="hero-card-label">Analyzer</div>
+                        </div>
+                        <div class="hero-card hero-card--breach">
+                            <div class="hero-card-icon">🛡️</div>
+                            <div class="hero-card-label">Breach Check</div>
+                        </div>
+                        <div class="hero-card hero-card--hash">
+                            <div class="hero-card-icon">🧬</div>
+                            <div class="hero-card-label">Hash Lab</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature Cards -->
+            <div class="features" id="features">
+                <h2 class="section-title">Security Tools</h2>
+                <p class="section-desc">Every tool runs entirely in your browser. Your secrets never touch a server.</p>
+                <div class="feature-grid">
+                    <a href="#generator" class="feature-card" id="feature-generator">
+                        <div class="feature-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                        </div>
+                        <h3>Password Generator</h3>
+                        <p>Cryptographically secure random passwords, passphrases, and PINs with configurable rules.</p>
+                    </a>
+                    <a href="#analyzer" class="feature-card" id="feature-analyzer">
+                        <div class="feature-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        </div>
+                        <h3>Strength Analyzer</h3>
+                        <p>Real-time strength scoring powered by zxcvbn — detects patterns, dictionary words, and common substitutions.</p>
+                    </a>
+                    <a href="#breach-check" class="feature-card" id="feature-breach">
+                        <div class="feature-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h3>Breach Check</h3>
+                        <p>Check if a password appears in known data breaches using k-anonymity — only a hash prefix leaves your browser.</p>
+                    </a>
+                    <a href="#estimator" class="feature-card" id="feature-estimator">
+                        <div class="feature-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        </div>
+                        <h3>Crack-Time Estimator</h3>
+                        <p>Calculate how long it would take to brute-force a password under different attacker scenarios.</p>
+                    </a>
+                    <a href="#hash-lab" class="feature-card" id="feature-hash">
+                        <div class="feature-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8h16M4 16h16M8 4v16M16 4v16"/></svg>
+                        </div>
+                        <h3>Hash & KDF Lab</h3>
+                        <p>Compute SHA-256/384/512, HMAC, and explore password hashing with Argon2, bcrypt, and PBKDF2.</p>
+                    </a>
+                    <a href="#encoder" class="feature-card" id="feature-encoder">
+                        <div class="feature-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        </div>
+                        <h3>Encoder / Decoder</h3>
+                        <p>Base64, Base32, Hex, URL encoding, HTML entities, and ROT13 — with one-click swap and copy.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Privacy Promise -->
+            <div class="privacy-banner">
+                <div class="privacy-banner-inner">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <div>
+                        <h3>Your Privacy, Guaranteed</h3>
+                        <p>All processing happens locally in your browser. No passwords, hashes, or inputs are ever sent to any server. The only optional network request is the breach check, which sends just the first 5 characters of a SHA-1 hash prefix — never the password itself. <a href="#learn">Learn more →</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== GENERATOR ==================== -->
+        <section class="page" id="generator" data-page="generator">
+            <div class="tool-container">
+                <div class="tool-header">
+                    <h2 class="tool-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                        Password Generator
+                    </h2>
+                    <p class="tool-desc">Generate cryptographically secure passwords, passphrases, and PINs using <code>crypto.getRandomValues()</code>.</p>
+                </div>
+
+                <div class="tool-body">
+                    <!-- Mode Selector -->
+                    <div class="mode-selector" role="radiogroup" aria-label="Generation mode">
+                        <button class="mode-btn mode-btn--active" data-mode="password" role="radio" aria-checked="true">Password</button>
+                        <button class="mode-btn" data-mode="passphrase" role="radio" aria-checked="false">Passphrase</button>
+                        <button class="mode-btn" data-mode="pin" role="radio" aria-checked="false">PIN</button>
+                    </div>
+
+                    <!-- Password Mode Controls -->
+                    <div class="gen-controls" id="gen-password-controls">
+                        <div class="control-group">
+                            <label for="gen-length" class="control-label">Length: <output id="gen-length-value">20</output></label>
+                            <input type="range" id="gen-length" min="4" max="128" value="20" class="range-input" aria-describedby="gen-length-help">
+                            <small id="gen-length-help" class="control-help">4–128 characters</small>
+                        </div>
+                        <div class="control-row">
+                            <label class="checkbox-label"><input type="checkbox" id="gen-upper" checked> Uppercase (A–Z)</label>
+                            <label class="checkbox-label"><input type="checkbox" id="gen-lower" checked> Lowercase (a–z)</label>
+                            <label class="checkbox-label"><input type="checkbox" id="gen-digits" checked> Digits (0–9)</label>
+                            <label class="checkbox-label"><input type="checkbox" id="gen-symbols" checked> Symbols (!@#$...)</label>
+                        </div>
+                        <div class="control-row">
+                            <label class="checkbox-label"><input type="checkbox" id="gen-exclude-ambiguous"> Exclude ambiguous (0O1lI)</label>
+                        </div>
+                        <div class="control-group">
+                            <label for="gen-custom-exclude" class="control-label">Custom exclusions</label>
+                            <input type="text" id="gen-custom-exclude" class="text-input" placeholder="Characters to exclude, e.g. {}<>">
+                        </div>
+                    </div>
+
+                    <!-- Passphrase Mode Controls -->
+                    <div class="gen-controls hidden" id="gen-passphrase-controls">
+                        <div class="control-group">
+                            <label for="gen-word-count" class="control-label">Word count: <output id="gen-word-count-value">5</output></label>
+                            <input type="range" id="gen-word-count" min="3" max="12" value="5" class="range-input">
+                        </div>
+                        <div class="control-group">
+                            <label for="gen-separator" class="control-label">Separator</label>
+                            <input type="text" id="gen-separator" class="text-input text-input--sm" value="-" maxlength="3">
+                        </div>
+                        <div class="control-row">
+                            <label class="checkbox-label"><input type="checkbox" id="gen-capitalize" checked> Capitalize words</label>
+                            <label class="checkbox-label"><input type="checkbox" id="gen-add-number"> Add number suffix</label>
+                        </div>
+                    </div>
+
+                    <!-- PIN Mode Controls -->
+                    <div class="gen-controls hidden" id="gen-pin-controls">
+                        <div class="control-group">
+                            <label for="gen-pin-length" class="control-label">PIN length: <output id="gen-pin-length-value">6</output></label>
+                            <input type="range" id="gen-pin-length" min="4" max="12" value="6" class="range-input">
+                        </div>
+                    </div>
+
+                    <!-- Generate Button -->
+                    <div class="gen-actions">
+                        <button class="btn btn--primary" id="gen-generate-btn">Generate</button>
+                        <div class="control-group control-group--inline">
+                            <label for="gen-bulk-count" class="control-label">Bulk:</label>
+                            <select id="gen-bulk-count" class="select-input select-input--sm">
+                                <option value="1">1</option>
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Output Area -->
+                    <div class="gen-output" id="gen-output" aria-live="polite" aria-atomic="false">
+                        <!-- Generated passwords will appear here -->
+                    </div>
+
+                    <!-- Entropy Display -->
+                    <div class="entropy-display hidden" id="gen-entropy">
+                        <div class="entropy-label">Estimated entropy</div>
+                        <div class="entropy-value" id="gen-entropy-value">—</div>
+                        <div class="entropy-detail" id="gen-entropy-detail"></div>
+                    </div>
+
+                    <button class="btn btn--ghost" id="gen-clear-btn">Clear All</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== ANALYZER ==================== -->
+        <section class="page" id="analyzer" data-page="analyzer">
+            <div class="tool-container">
+                <div class="tool-header">
+                    <h2 class="tool-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        Strength Analyzer
+                    </h2>
+                    <p class="tool-desc">Real-time password strength estimation powered by <a href="https://github.com/dropbox/zxcvbn" target="_blank" rel="noopener">zxcvbn</a>. Your password never leaves the browser.</p>
+                </div>
+
+                <div class="tool-body">
+                    <div class="control-group">
+                        <label for="analyzer-input" class="control-label">Enter a password to analyze</label>
+                        <div class="password-input-wrapper">
+                            <input type="password" id="analyzer-input" class="text-input text-input--lg" placeholder="Type or paste a password…" autocomplete="off" spellcheck="false">
+                            <button class="input-toggle-vis" id="analyzer-toggle-vis" aria-label="Show password" type="button">
+                                <svg class="eye-icon eye-icon--show" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                                <svg class="eye-icon eye-icon--hide hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Strength Meter -->
+                    <div class="strength-meter hidden" id="analyzer-meter">
+                        <div class="strength-bar-track">
+                            <div class="strength-bar-fill" id="analyzer-bar"></div>
+                        </div>
+                        <div class="strength-info">
+                            <span class="strength-label" id="analyzer-label">—</span>
+                            <span class="strength-score" id="analyzer-score">— / 4</span>
+                        </div>
+                        <div class="strength-details" id="analyzer-details">
+                            <div class="detail-item" id="analyzer-crack-time">
+                                <span class="detail-key">Estimated crack time</span>
+                                <span class="detail-val" id="analyzer-crack-time-val">—</span>
+                            </div>
+                            <div class="detail-item" id="analyzer-warning">
+                                <span class="detail-key">Warning</span>
+                                <span class="detail-val" id="analyzer-warning-val">—</span>
+                            </div>
+                        </div>
+                        <div class="strength-suggestions" id="analyzer-suggestions"></div>
+
+                        <!-- Optional Policy Checks -->
+                        <details class="policy-checks">
+                            <summary>Optional policy checks</summary>
+                            <div class="policy-list" id="analyzer-policies"></div>
+                        </details>
+                    </div>
+
+                    <button class="btn btn--ghost" id="analyzer-clear-btn">Clear</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== BREACH CHECK ==================== -->
+        <section class="page" id="breach-check" data-page="breach-check">
+            <div class="tool-container">
+                <div class="tool-header">
+                    <h2 class="tool-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        Breached Password Check
+                    </h2>
+                    <p class="tool-desc">Check if a password has appeared in known data breaches using the <a href="https://haveibeenpwned.com/API/v3#PwnedPasswords" target="_blank" rel="noopener">Have I Been Pwned</a> API with k-anonymity.</p>
+                </div>
+
+                <div class="tool-body">
+                    <div class="info-box info-box--privacy">
+                        <strong>How this works:</strong> Your password is hashed (SHA-1) locally. Only the first 5 characters of the hash are sent to the HIBP API. The full hash and your password never leave your browser. <a href="#learn">Learn more →</a>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="breach-input" class="control-label">Password to check</label>
+                        <div class="password-input-wrapper">
+                            <input type="password" id="breach-input" class="text-input text-input--lg" placeholder="Enter password to check…" autocomplete="off" spellcheck="false">
+                            <button class="input-toggle-vis" id="breach-toggle-vis" aria-label="Show password" type="button">
+                                <svg class="eye-icon eye-icon--show" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                                <svg class="eye-icon eye-icon--hide hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button class="btn btn--primary" id="breach-check-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        Check Against Breaches
+                    </button>
+
+                    <div class="breach-result hidden" id="breach-result" aria-live="polite"></div>
+
+                    <button class="btn btn--ghost" id="breach-clear-btn">Clear</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== ESTIMATOR ==================== -->
+        <section class="page" id="estimator" data-page="estimator">
+            <div class="tool-container">
+                <div class="tool-header">
+                    <h2 class="tool-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        Crack-Time Estimator
+                    </h2>
+                    <p class="tool-desc">Estimate how long a brute-force attack would take under different attacker scenarios. Uses BigInt to handle extreme values.</p>
+                </div>
+
+                <div class="tool-body">
+                    <div class="control-group">
+                        <label for="est-length" class="control-label">Password length</label>
+                        <input type="number" id="est-length" class="text-input" min="1" max="256" value="20" inputmode="numeric">
+                    </div>
+                    <div class="control-group">
+                        <label for="est-charset" class="control-label">Character pool size</label>
+                        <select id="est-charset" class="select-input">
+                            <option value="10">Digits only (10)</option>
+                            <option value="26">Lowercase only (26)</option>
+                            <option value="52">Mixed case (52)</option>
+                            <option value="62">Alphanumeric (62)</option>
+                            <option value="95" selected>Full printable ASCII (95)</option>
+                            <option value="custom">Custom…</option>
+                        </select>
+                        <input type="number" id="est-charset-custom" class="text-input hidden" min="2" max="1000" placeholder="Custom pool size">
+                    </div>
+
+                    <div class="scenario-grid" id="est-scenarios">
+                        <div class="scenario-card">
+                            <div class="scenario-name">🌐 Throttled Online</div>
+                            <div class="scenario-rate">100 guesses/hour</div>
+                            <div class="scenario-result" id="est-throttled">—</div>
+                        </div>
+                        <div class="scenario-card">
+                            <div class="scenario-name">⚡ Unthrottled Online</div>
+                            <div class="scenario-rate">1,000 guesses/sec</div>
+                            <div class="scenario-result" id="est-unthrottled">—</div>
+                        </div>
+                        <div class="scenario-card">
+                            <div class="scenario-name">🐢 Offline (slow hash)</div>
+                            <div class="scenario-rate">10,000 guesses/sec</div>
+                            <div class="scenario-result" id="est-slow-hash">—</div>
+                        </div>
+                        <div class="scenario-card">
+                            <div class="scenario-name">🚀 Offline (fast hash)</div>
+                            <div class="scenario-rate">10B guesses/sec</div>
+                            <div class="scenario-result" id="est-fast-hash">—</div>
+                        </div>
+                    </div>
+
+                    <div class="entropy-display" id="est-entropy">
+                        <div class="entropy-label">Search space entropy</div>
+                        <div class="entropy-value" id="est-entropy-value">—</div>
+                        <div class="entropy-detail" id="est-entropy-detail"></div>
+                    </div>
+
+                    <!-- Visualization -->
+                    <div class="est-visualization" id="est-viz">
+                        <h3 class="subsection-title">How Length & Pool Size Affect Security</h3>
+                        <div class="viz-canvas" id="est-viz-canvas" role="img" aria-label="Bar chart showing how password length affects search space entropy"></div>
+                        <div class="viz-legend" id="est-viz-legend"></div>
+                    </div>
+
+                    <div class="info-box">
+                        <strong>Note:</strong> These estimates assume random, uniformly selected characters. Real-world cracking times depend on password reuse, leaked databases, targeted attacks, and hashing algorithms. A breached password can be cracked instantly regardless of its theoretical strength.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== HASH LAB ==================== -->
+        <section class="page" id="hash-lab" data-page="hash-lab">
+            <div class="tool-container">
+                <div class="tool-header">
+                    <h2 class="tool-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 8h16M4 16h16M8 4v16M16 4v16"/></svg>
+                        Hash & KDF Lab
+                    </h2>
+                    <p class="tool-desc">Compute cryptographic hashes, explore HMAC, and learn about password hashing with KDFs — all locally in your browser.</p>
+                </div>
+
+                <div class="tool-body">
+                    <!-- Mode tabs -->
+                    <div class="mode-selector" role="radiogroup" aria-label="Hash lab mode">
+                        <button class="mode-btn mode-btn--active" data-hash-mode="text" role="radio" aria-checked="true">Text Hash</button>
+                        <button class="mode-btn" data-hash-mode="file" role="radio" aria-checked="false">File Hash</button>
+                        <button class="mode-btn" data-hash-mode="hmac" role="radio" aria-checked="false">HMAC</button>
+                        <button class="mode-btn" data-hash-mode="kdf" role="radio" aria-checked="false">KDF Demo</button>
+                    </div>
+
+                    <!-- Text Hash -->
+                    <div class="hash-panel" id="hash-text-panel">
+                        <div class="control-group">
+                            <label for="hash-text-input" class="control-label">Text to hash</label>
+                            <textarea id="hash-text-input" class="text-input textarea" rows="3" placeholder="Enter text…"></textarea>
+                        </div>
+                        <div class="control-group">
+                            <label for="hash-algo" class="control-label">Algorithm</label>
+                            <select id="hash-algo" class="select-input">
+                                <optgroup label="Modern (Recommended)">
+                                    <option value="SHA-256" selected>SHA-256</option>
+                                    <option value="SHA-384">SHA-384</option>
+                                    <option value="SHA-512">SHA-512</option>
+                                </optgroup>
+                                <optgroup label="Legacy (Demonstration Only)">
+                                    <option value="MD5">MD5 ⚠️</option>
+                                    <option value="SHA-1">SHA-1 ⚠️</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <button class="btn btn--primary" id="hash-compute-btn">Compute Hash</button>
+                        <div class="hash-output hidden" id="hash-text-output">
+                            <div class="output-label">Result:</div>
+                            <div class="output-value" id="hash-text-result"></div>
+                            <button class="btn btn--sm btn--copy" data-copy-target="hash-text-result">Copy</button>
+                        </div>
+                    </div>
+
+                    <!-- File Hash -->
+                    <div class="hash-panel hidden" id="hash-file-panel">
+                        <div class="control-group">
+                            <label for="hash-file-input" class="control-label">Select a file (max 100 MB)</label>
+                            <input type="file" id="hash-file-input" class="file-input">
+                        </div>
+                        <div class="control-group">
+                            <label for="hash-file-algo" class="control-label">Algorithm</label>
+                            <select id="hash-file-algo" class="select-input">
+                                <option value="SHA-256" selected>SHA-256</option>
+                                <option value="SHA-384">SHA-384</option>
+                                <option value="SHA-512">SHA-512</option>
+                            </select>
+                        </div>
+                        <button class="btn btn--primary" id="hash-file-btn">Hash File</button>
+                        <div class="hash-output hidden" id="hash-file-output">
+                            <div class="output-label">File hash:</div>
+                            <div class="output-value" id="hash-file-result"></div>
+                            <button class="btn btn--sm btn--copy" data-copy-target="hash-file-result">Copy</button>
+                        </div>
+                        <div class="progress-bar hidden" id="hash-file-progress">
+                            <div class="progress-fill" id="hash-file-progress-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- HMAC -->
+                    <div class="hash-panel hidden" id="hash-hmac-panel">
+                        <div class="control-group">
+                            <label for="hmac-message" class="control-label">Message</label>
+                            <textarea id="hmac-message" class="text-input textarea" rows="2" placeholder="Enter message…"></textarea>
+                        </div>
+                        <div class="control-group">
+                            <label for="hmac-key" class="control-label">Secret key</label>
+                            <input type="text" id="hmac-key" class="text-input" placeholder="Enter HMAC key…">
+                        </div>
+                        <div class="control-group">
+                            <label for="hmac-algo" class="control-label">Algorithm</label>
+                            <select id="hmac-algo" class="select-input">
+                                <option value="SHA-256" selected>SHA-256</option>
+                                <option value="SHA-384">SHA-384</option>
+                                <option value="SHA-512">SHA-512</option>
+                            </select>
+                        </div>
+                        <button class="btn btn--primary" id="hmac-compute-btn">Compute HMAC</button>
+                        <div class="hash-output hidden" id="hmac-output">
+                            <div class="output-label">HMAC result:</div>
+                            <div class="output-value" id="hmac-result"></div>
+                            <button class="btn btn--sm btn--copy" data-copy-target="hmac-result">Copy</button>
+                        </div>
+                    </div>
+
+                    <!-- KDF Demo -->
+                    <div class="hash-panel hidden" id="hash-kdf-panel">
+                        <div class="info-box">
+                            <strong>Educational demo:</strong> This shows how password-specific hashing functions work. These are <em>not</em> production authentication — they demonstrate the concept of salted, adaptive password hashing.
+                        </div>
+                        <div class="control-group">
+                            <label for="kdf-password" class="control-label">Password</label>
+                            <input type="text" id="kdf-password" class="text-input" placeholder="Enter a test password…" autocomplete="off">
+                        </div>
+                        <div class="control-group">
+                            <label for="kdf-algo" class="control-label">Algorithm</label>
+                            <select id="kdf-algo" class="select-input">
+                                <option value="PBKDF2" selected>PBKDF2 (Web Crypto)</option>
+                            </select>
+                        </div>
+                        <button class="btn btn--primary" id="kdf-compute-btn">Derive Key</button>
+                        <div class="hash-output hidden" id="kdf-output">
+                            <div class="kdf-results" id="kdf-results"></div>
+                        </div>
+                    </div>
+
+                    <div class="info-box info-box--warning hidden" id="hash-legacy-warning">
+                        <strong>⚠️ Legacy algorithm:</strong> MD5 and SHA-1 are cryptographically broken and must not be used for password storage, digital signatures, or integrity verification in security-critical applications. They are included here for educational comparison only.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== ENCODER ==================== -->
+        <section class="page" id="encoder" data-page="encoder">
+            <div class="tool-container">
+                <div class="tool-header">
+                    <h2 class="tool-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        Encoder / Decoder
+                    </h2>
+                    <p class="tool-desc">Transform text between encoding formats. <strong>Encoding is not encryption</strong> — it provides no security.</p>
+                </div>
+
+                <div class="tool-body">
+                    <div class="control-group">
+                        <label for="enc-format" class="control-label">Format</label>
+                        <select id="enc-format" class="select-input">
+                            <option value="base64">Base64</option>
+                            <option value="base64url">Base64URL</option>
+                            <option value="base32">Base32</option>
+                            <option value="hex">Hexadecimal</option>
+                            <option value="url">URL Encoding</option>
+                            <option value="html">HTML Entities</option>
+                            <option value="rot13">ROT13</option>
+                        </select>
+                    </div>
+
+                    <div class="encoder-area">
+                        <div class="encoder-pane">
+                            <label for="enc-input" class="control-label">Input (plain text)</label>
+                            <textarea id="enc-input" class="text-input textarea" rows="4" placeholder="Enter text to encode…"></textarea>
+                        </div>
+                        <div class="encoder-controls-mid">
+                            <button class="btn btn--primary btn--sm" id="enc-encode-btn" title="Encode">Encode →</button>
+                            <button class="btn btn--outline btn--sm" id="enc-swap-btn" title="Swap input and output">⇅ Swap</button>
+                            <button class="btn btn--primary btn--sm" id="enc-decode-btn" title="Decode">← Decode</button>
+                        </div>
+                        <div class="encoder-pane">
+                            <label for="enc-output" class="control-label">Output (encoded)</label>
+                            <textarea id="enc-output" class="text-input textarea" rows="4" placeholder="Encoded output…" readonly></textarea>
+                            <button class="btn btn--sm btn--copy" data-copy-target="enc-output">Copy</button>
+                        </div>
+                    </div>
+
+                    <div class="enc-error hidden" id="enc-error" role="alert" aria-live="assertive"></div>
+
+                    <button class="btn btn--ghost" id="enc-clear-btn">Clear All</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== LEARN ==================== -->
+        <section class="page" id="learn" data-page="learn">
+            <div class="tool-container tool-container--wide">
+                <div class="tool-header">
+                    <h2 class="tool-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+                        Learn & Privacy
+                    </h2>
+                    <p class="tool-desc">Understanding password security concepts and how CryptaKey protects your data.</p>
+                </div>
+
+                <div class="tool-body learn-body">
+                    <div class="learn-nav" role="tablist" aria-label="Learning topics">
+                        <button class="learn-tab learn-tab--active" role="tab" aria-selected="true" data-learn="basics">Passwords & Passphrases</button>
+                        <button class="learn-tab" role="tab" aria-selected="false" data-learn="entropy">Entropy & Strength</button>
+                        <button class="learn-tab" role="tab" aria-selected="false" data-learn="hashing">Hashing & KDFs</button>
+                        <button class="learn-tab" role="tab" aria-selected="false" data-learn="breaches">Breaches & Reuse</button>
+                        <button class="learn-tab" role="tab" aria-selected="false" data-learn="privacy">Privacy & Data Flow</button>
+                    </div>
+
+                    <div class="learn-content" id="learn-content">
+                        <!-- Content loaded dynamically by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="footer-logo">CryptaKey</span>
+                <span class="footer-tagline">Explore. Analyze. Secure.</span>
+            </div>
+            <div class="footer-links">
+                <a href="#learn" data-learn-target="privacy">Privacy</a>
+                <a href="https://github.com/hamidrafique2-boop" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://linkedin.com/in/hamid-rafique-299006381" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+            <div class="footer-copy">© 2026 Hamid Rafique</div>
+        </div>
+    </footer>
+
+    <!-- Status toast for copy/action feedback -->
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Scripts (defer, no inline JS) -->
+    <script src="js/utils.js" defer></script>
+    <script src="js/navigation.js" defer></script>
+    <script src="js/generator.js" defer></script>
+    <script src="js/analyzer.js" defer></script>
+    <script src="js/breach-check.js" defer></script>
+    <script src="js/estimator.js" defer></script>
+    <script src="js/hash-lab.js" defer></script>
+    <script src="js/encoder.js" defer></script>
+    <script src="js/learn.js" defer></script>
+    <script src="js/app.js" defer></script>
+</body>
+</html>

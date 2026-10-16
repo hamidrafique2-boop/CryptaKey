@@ -1,378 +1,346 @@
 <div align="center">
 
-# 🔐 CryptaKey
+<img src="assets/banner.svg" alt="CryptaKey — Password Security Studio" width="100%">
 
-### Password Security Studio
+<br>
 
-*Generate, analyze, and secure passwords — entirely in your browser.*
+[![Live Demo](https://img.shields.io/badge/▶_Live_Demo-B2420F?style=for-the-badge&logoColor=white)](https://hamidrafique2-boop.github.io/CryptaKey/)
+[![CI](https://img.shields.io/github/actions/workflow/status/hamidrafique2-boop/CryptaKey/ci.yml?branch=main&style=for-the-badge&label=CI&color=46702F)](https://github.com/hamidrafique2-boop/CryptaKey/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-7A4B2A?style=for-the-badge)](LICENSE)
+[![Privacy First](https://img.shields.io/badge/Privacy-First-46702F?style=for-the-badge)](docs/PRIVACY.md)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![GitHub Pages](https://img.shields.io/badge/Live-GitHub%20Pages-brightgreen)](https://hamidrafique2-boop.github.io/CryptaKey/)
-[![JavaScript](https://img.shields.io/badge/JavaScript-ES2020+-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Web Crypto](https://img.shields.io/badge/Web%20Crypto-API-06b6d4)](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)
-[![Privacy](https://img.shields.io/badge/Privacy-First-22c55e)](docs/PRIVACY.md)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES2020+-C28A1F?style=flat-square&logo=javascript&logoColor=white)
+![Web Crypto](https://img.shields.io/badge/Web_Crypto-API-B2420F?style=flat-square)
+![No Build Step](https://img.shields.io/badge/Build-none-7A4B2A?style=flat-square)
+![Dependencies](https://img.shields.io/badge/Runtime_deps-0_(zxcvbn_bundled)-46702F?style=flat-square)
+![Responsive](https://img.shields.io/badge/Responsive-320px_→_4K-B2420F?style=flat-square)
+![Themes](https://img.shields.io/badge/Themes-Beige_%26_Rust_·_Espresso-7A4B2A?style=flat-square)
 
-[Live Demo](https://hamidrafique2-boop.github.io/CryptaKey/) · [Documentation](docs/) · [Report Issue](https://github.com/hamidrafique2-boop/CryptaKey/issues)
+**Generate · Analyze · Breach-check · Estimate · Hash · Encode — entirely in your browser.**
+
+[Live Demo](https://hamidrafique2-boop.github.io/CryptaKey/) · [Features](#-features) · [Quick Start](#-quick-start) · [Architecture](#-architecture) · [Security](#-security--privacy) · [Roadmap](#-roadmap)
 
 </div>
 
 ---
 
-## 📋 Project Overview
+## 🧭 What is CryptaKey?
 
-**CryptaKey** is a privacy-first, browser-based password security studio designed to help users generate strong passwords, analyze their strength, check for data breaches, estimate crack times, explore cryptographic hashing, and learn about password security — all without sending any sensitive data to a server.
+Most password tools ask you to trust a server. **CryptaKey asks you to trust nothing but your own browser.**
 
-### Objectives
+It is a single-page **password security studio** that lets you create strong credentials, measure how they would hold up against real attackers, check whether they have leaked, and *understand why* — through interactive labs for entropy, hashing, key derivation and encoding. Every sensitive operation runs locally on the Web Crypto API, so privacy is a property of the **architecture**, not a promise in a policy page. You can verify it yourself in the DevTools Network tab.
 
-- **Privacy by Architecture**: All password operations run locally using the Web Crypto API — no server receives your passwords
-- **Security Education**: Teach users about entropy, hashing, KDFs, breaches, and best practices through interactive tools
-- **Professional Quality**: Production-grade code, responsive design, full accessibility, and comprehensive documentation
-- **Portfolio Demonstration**: Showcase application security engineering, modern frontend development, and security-conscious design
+> 🎓 Built as part of a **Cybersecurity Internship Program** project, with the goal of demonstrating application-security engineering, privacy-by-design and polished, accessible front-end craft — with no framework and no build step.
 
----
+<div align="center">
 
-## ✨ Features & Technologies
+| 🔒 **0** servers | 🍪 **0** cookies | 📡 **5** chars of a hash ever leave the device (and only if you ask) | 📦 **0** CDN requests |
+|:--:|:--:|:--:|:--:|
 
-### Core Security Tools
-
-| Tool | Description | Technology |
-|------|-------------|------------|
-| 🔐 **Password Generator** | Random passwords, passphrases (EFF Diceware), and PINs with configurable rules | `crypto.getRandomValues()` with rejection sampling |
-| 📊 **Strength Analyzer** | Real-time scoring with pattern detection, suggestions, and optional policy checks | [zxcvbn](https://github.com/dropbox/zxcvbn) (bundled, MIT) |
-| 🛡️ **Breach Check** | k-anonymity lookup against Have I Been Pwned breach database | SHA-1 prefix (5 chars) via HIBP API |
-| ⏱️ **Crack-Time Estimator** | Brute-force time under 4 attacker scenarios with interactive visualization | BigInt arithmetic (overflow-safe) |
-| 🧬 **Hash & KDF Lab** | SHA-256/384/512, HMAC, MD5/SHA-1 (legacy demos), PBKDF2 key derivation | Web Crypto API |
-| 🔄 **Encoder / Decoder** | Base64, Base64URL, Base32, Hex, URL encoding, HTML entities, ROT13 | Native JavaScript APIs |
-| 📚 **Learn & Privacy** | Educational content on passwords, entropy, hashing, breaches, and complete data flow disclosure | Interactive tabbed content |
-
-### Technical Stack
-
-| Layer | Technology |
-|-------|------------|
-| **Structure** | Semantic HTML5 with ARIA landmarks |
-| **Styling** | Vanilla CSS with custom properties (design system), dark/light themes |
-| **Logic** | Vanilla JavaScript (ES2020+), no framework dependencies |
-| **Cryptography** | Web Crypto API (`crypto.getRandomValues()`, `SubtleCrypto`) |
-| **Strength Analysis** | zxcvbn.js v4.4.2 (MIT, self-hosted) |
-| **Wordlist** | EFF Diceware Large Wordlist (7,776 words, CC BY 3.0 US) |
-| **Hosting** | GitHub Pages (static, HTTPS) |
-| **CI/CD** | GitHub Actions |
+</div>
 
 ---
 
-## 🚀 Installation & Setup
+## 📸 A look inside
 
-### Quick Start (Local)
+<div align="center">
+
+<img src="docs/screenshots/home-desktop.png" alt="CryptaKey landing page on desktop, beige and rust theme" width="92%">
+
+</div>
+
+<table>
+  <tr>
+    <td width="50%" align="center"><b>🌙 Espresso &amp; Rust (dark)</b><br><img src="docs/screenshots/home-dark.png" alt="Dark theme"></td>
+    <td width="25%" align="center"><b>📱 Phone</b><br><img src="docs/screenshots/home-mobile.png" alt="Mobile layout"></td>
+    <td width="25%" align="center"><b>📟 Tablet</b><br><img src="docs/screenshots/generator-tablet.png" alt="Tablet generator"></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><b>📊 Strength Analyzer</b><br><img src="docs/screenshots/analyzer-desktop.png" alt="Strength analyzer"></td>
+    <td colspan="1" align="center"><b>⏱️ Crack-Time Estimator</b><br><img src="docs/screenshots/estimator-desktop.png" alt="Crack-time estimator"></td>
+  </tr>
+</table>
+
+---
+
+## ✨ Features
+
+| | Tool | What it does | Under the hood |
+|:-:|------|--------------|----------------|
+| 🔐 | **Password Generator** | Random passwords, EFF Diceware passphrases and PINs with length, character-class and exclusion rules; bulk generation up to 20 | `crypto.getRandomValues()` + rejection sampling (no modulo bias) |
+| 📊 | **Strength Analyzer** | Live scoring (0–4), crack-time estimate, pattern warnings and suggestions; optional, informational policy checks | [zxcvbn](https://github.com/dropbox/zxcvbn) v4.4.2, bundled & lazy-loaded |
+| 🛡️ | **Breach Check** | Has this password appeared in a known breach? Only a 5-character hash prefix is sent | SHA-1 prefix · HIBP range API · `Add-Padding: true` |
+| ⏱️ | **Crack-Time Estimator** | Brute-force time under four attacker models with a live entropy chart | `BigInt` arithmetic — never overflows to `Infinity` |
+| 🧬 | **Hash & KDF Lab** | SHA-256/384/512, HMAC, file hashing (≤ 100 MB) and a PBKDF2 key-derivation demo; MD5/SHA-1 flagged as legacy | Web Crypto `SubtleCrypto` |
+| 🔄 | **Encoder / Decoder** | Base64, Base64URL, Base32, Hex, URL, HTML entities, ROT13 — with swap & copy | Native JS, XSS-safe rendering |
+| 📚 | **Learn & Privacy** | Short lessons on entropy, hashing, breaches and a full data-flow disclosure table | Tabbed, accessible content |
+
+### 🎨 Design & experience
+
+- **Beige & Rust identity** — a warm "paper" palette with rust accents, a serif display face, subtle grain and flowing contour lines. A matching **Espresso & Rust** dark theme is one click away (your choice is the only thing ever stored locally).
+- **Truly responsive** — fluid type and spacing, rem-based sizing that scales up to 4K, a collapsing drawer navigation, touch-sized controls, safe-area support for notched phones and landscape-friendly layouts. Verified from **320 px to 2560 px** with no horizontal scroll.
+- **Alive, not noisy** — a live sample password generated with the real CSPRNG on the landing page, scroll-reveal animations and micro-interactions that all respect `prefers-reduced-motion`.
+- **Accessible** — semantic landmarks, skip link, visible focus rings, ARIA live regions, keyboard-operable everything, WCAG-AA contrast on both themes.
+
+<details>
+<summary><b>🎨 Colour palette</b></summary>
+
+<br>
+
+| Role | Light — Beige & Rust | Dark — Espresso & Rust |
+|------|:---:|:---:|
+| Background | ![](https://img.shields.io/badge/-%23F3EADB-F3EADB?style=flat-square) `#F3EADB` | ![](https://img.shields.io/badge/-%2316100C-16100C?style=flat-square) `#16100C` |
+| Surface / card | ![](https://img.shields.io/badge/-%23FCF8F0-FCF8F0?style=flat-square) `#FCF8F0` | ![](https://img.shields.io/badge/-%23231A14-231A14?style=flat-square) `#231A14` |
+| Primary text | ![](https://img.shields.io/badge/-%232B1D14-2B1D14?style=flat-square) `#2B1D14` | ![](https://img.shields.io/badge/-%23F2E7D5-F2E7D5?style=flat-square) `#F2E7D5` |
+| **Rust accent** | ![](https://img.shields.io/badge/-%23B2420F-B2420F?style=flat-square) `#B2420F` | ![](https://img.shields.io/badge/-%23E57F43-E57F43?style=flat-square) `#E57F43` |
+| Clay (secondary) | ![](https://img.shields.io/badge/-%237A4B2A-7A4B2A?style=flat-square) `#7A4B2A` | ![](https://img.shields.io/badge/-%23E3B88C-E3B88C?style=flat-square) `#E3B88C` |
+
+All colours are CSS custom properties in [`css/design-system.css`](css/design-system.css) — re-theming the whole app means editing one block.
+
+</details>
+
+---
+
+## 🚀 Quick Start
+
+No build step, no package manager, no runtime dependencies.
 
 ```bash
-# Clone the repository
 git clone https://github.com/hamidrafique2-boop/CryptaKey.git
 cd CryptaKey
 
-# No build step required — just open in a browser
-# Option 1: Use any local server
-npx serve .
+# pick any static server
+npm start                    # Node (serves on :8000)
+python3 -m http.server 8000  # or Python
 
-# Option 2: Python
-python -m http.server 8000
-
-# Option 3: Open directly (some features require HTTPS/localhost)
-# Open index.html in your browser
+npm run check                # optional: syntax, CSPRNG-only, no inline scripts, file refs
 ```
 
-### Requirements
+Then open **http://localhost:8000**.
 
-- Modern browser with Web Crypto API support (Chrome 37+, Firefox 34+, Safari 11+, Edge 79+)
-- No Node.js, Python, or server-side runtime required
-- No build step, transpilation, or bundler needed
+> 💡 Serve over `http://localhost` or HTTPS — the Web Crypto API and the clipboard need a *secure context*, and the wordlist is loaded with `fetch`.
 
----
-
-## 📖 Usage Guide
-
-### Password Generator
-1. Navigate to **Generator** from the top menu
-2. Select mode: **Password**, **Passphrase**, or **PIN**
-3. Configure length, character classes, and exclusions
-4. Click **Generate** — results appear with copy buttons
-5. Use **Bulk** dropdown to generate up to 20 at once
-6. Entropy is calculated and displayed: `length × log₂(pool_size)`
-
-### Strength Analyzer
-1. Navigate to **Analyzer**
-2. Type or paste any password — analysis runs live (debounced 300ms)
-3. View score (0–4), crack-time estimate, detected patterns, and suggestions
-4. Expand **Optional policy checks** for character-class compliance (informational only)
-
-### Breach Check
-1. Navigate to **Breach Check**
-2. Read the privacy disclosure explaining what data is sent
-3. Enter a password and click **Check Against Breaches**
-4. Only the first 5 characters of the SHA-1 hash are sent to HIBP
-5. Results: "Found in N breaches" / "Not found" / "Could not check"
-
-### Crack-Time Estimator
-1. Navigate to **Estimator**
-2. Set password length and character pool size
-3. View estimated times across 4 scenarios (throttled online → offline fast hash)
-4. Interactive visualization shows how length affects entropy
-
-### Hash & KDF Lab
-1. Navigate to **Hash Lab**
-2. Choose mode: **Text Hash**, **File Hash**, **HMAC**, or **KDF Demo**
-3. Select algorithm (SHA-256/384/512, or legacy MD5/SHA-1 with warnings)
-4. View the computed hash with one-click copy
-
-### Encoder / Decoder
-1. Navigate to **Encoder**
-2. Select format, enter text, click **Encode →** or **← Decode**
-3. Use **⇅ Swap** to reverse input/output
-4. Note: Encoding provides **no security** — clearly stated in the UI
+**Requirements:** any modern browser (Chrome 37+, Firefox 34+, Safari 11+, Edge 79+). **Deployment:** push to `main` and the included GitHub Actions workflow publishes to GitHub Pages.
 
 ---
 
-## 🏗️ System Architecture
+## 📖 Usage guide
 
-### Component Diagram
+<details>
+<summary><b>🔐 Password Generator</b></summary>
+
+1. Open **Generator** and pick **Password**, **Passphrase** or **PIN**.
+2. Tune length, character classes and exclusions (or word count and separator).
+3. Choose a **Bulk** size (1–20) and press **Generate**.
+4. Copy any result with one click. Entropy is shown as `length × log₂(pool size)`.
+5. **Clear All** wipes the output from the page.
+
+</details>
+
+<details>
+<summary><b>📊 Strength Analyzer</b></summary>
+
+1. Type or paste a password — analysis runs live (debounced 300 ms).
+2. Read the score (0–4), crack-time estimate, warnings and suggestions.
+3. Expand **Optional policy checks** to see character-class compliance (informational only — never a gate).
+
+</details>
+
+<details>
+<summary><b>🛡️ Breach Check</b></summary>
+
+1. Read the privacy note: your password is SHA-1 hashed **locally**.
+2. Press **Check Against Breaches** — only the first 5 hex characters of the hash are sent.
+3. The matching suffixes returned are compared **in your browser**. Result: *found in N breaches*, *not found*, or *could not check*.
+
+</details>
+
+<details>
+<summary><b>⏱️ Crack-Time Estimator · 🧬 Hash Lab · 🔄 Encoder</b></summary>
+
+- **Estimator** — set length and pool size; compare throttled-online, unthrottled-online, slow-hash and fast-hash attackers.
+- **Hash Lab** — choose Text, File, HMAC or KDF mode; MD5/SHA-1 show a legacy warning.
+- **Encoder** — pick a format, **Encode →** / **← Decode**, **⇅ Swap**. Encoding is *not* encryption, and the UI says so.
+
+</details>
+
+---
+
+## 🏗️ Architecture
 
 ```mermaid
 graph TB
-    subgraph Browser ["Browser (All Processing Local)"]
-        UI[HTML/CSS UI Layer]
-        NAV[Navigation SPA Router]
-        GEN[Generator Module]
-        ANA[Analyzer Module]
-        BRC[Breach Check Module]
-        EST[Estimator Module]
-        HSH[Hash Lab Module]
-        ENC[Encoder Module]
-        LRN[Learn Module]
-        UTL[Utilities / Crypto Helpers]
-        ZXC[zxcvbn.js Library]
-        WDL[EFF Wordlist Data]
-        WCA[Web Crypto API]
+    subgraph Browser ["🌐 Browser — everything runs here"]
+        UI["HTML · CSS<br/>Design system"]
+        NAV["Hash router &<br/>theme / drawer"]
+        GEN["Generator"]
+        ANA["Analyzer"]
+        BRC["Breach Check"]
+        EST["Estimator"]
+        HSH["Hash Lab"]
+        ENC["Encoder"]
+        LRN["Learn"]
+        HERO["Hero sample"]
+        UTL["utils.js<br/>CSPRNG · clipboard · formatting"]
+        ZXC["zxcvbn.js"]
+        WDL["EFF wordlist"]
+        WCA["Web Crypto API"]
     end
 
-    subgraph External ["External (Optional)"]
-        HIBP[HIBP API<br>api.pwnedpasswords.com]
+    subgraph External ["☁️ Optional · user-initiated"]
+        HIBP["HIBP range API<br/>5-char prefix only"]
     end
 
     UI --> NAV
-    UI --> GEN
-    UI --> ANA
-    UI --> BRC
-    UI --> EST
-    UI --> HSH
-    UI --> ENC
-    UI --> LRN
-
-    GEN --> UTL
-    GEN --> WCA
-    GEN --> WDL
+    NAV --> GEN & ANA & BRC & EST & HSH & ENC & LRN & HERO
+    GEN --> UTL & WDL
+    HERO --> UTL
     ANA --> ZXC
     BRC --> UTL
-    BRC -->|"SHA-1 prefix<br>(5 chars only)"| HIBP
-    EST --> UTL
+    BRC -->|"k-anonymity"| HIBP
     HSH --> WCA
-    ENC --> UTL
+    UTL --> WCA
 
-    style Browser fill:#1a1f2e,stroke:#3b82f6,color:#e8eaf0
-    style External fill:#2d1a1a,stroke:#ef4444,color:#e8eaf0
+    classDef local fill:#faf4e8,stroke:#b2420f,color:#2b1d14;
+    classDef ext fill:#f3dcc9,stroke:#8f320a,color:#2b1d14,stroke-dasharray:4 3;
+    class UI,NAV,GEN,ANA,BRC,EST,HSH,ENC,LRN,HERO,UTL,ZXC,WDL,WCA local;
+    class HIBP ext;
 ```
 
-### Data Flow — Privacy Boundary
+### Privacy boundary
 
 ```mermaid
 flowchart LR
-    subgraph LOCAL ["🟢 LOCAL (Your Browser)"]
-        A[User Input] --> B[Password/Text]
-        B --> C{Which Tool?}
-        C -->|Generator| D[crypto.getRandomValues]
-        C -->|Analyzer| E[zxcvbn local analysis]
-        C -->|Hash Lab| F[Web Crypto digest]
-        C -->|Encoder| G[JS encode/decode]
-        C -->|Estimator| H[BigInt math]
-        C -->|Breach Check| I[SHA-1 hash locally]
-        D --> J[Display Result]
-        E --> J
-        F --> J
-        G --> J
-        H --> J
-        I --> K[Extract 5-char prefix]
+    subgraph LOCAL ["🟢 LOCAL — your browser"]
+        A["Your input"] --> C{"Which tool?"}
+        C -->|Generator| D["getRandomValues"]
+        C -->|Analyzer| E["zxcvbn"]
+        C -->|Hash Lab| F["SubtleCrypto.digest"]
+        C -->|Estimator| H["BigInt math"]
+        C -->|Breach Check| I["SHA-1 locally"]
+        D & E & F & H --> J["Result on screen"]
+        I --> K["First 5 chars"]
     end
-
-    subgraph NETWORK ["🟡 NETWORK (Only for Breach Check)"]
-        K -->|"GET /range/ABCDE<br>Add-Padding: true"| L[HIBP API]
-        L -->|"~800 hash suffixes"| M[Compare suffix locally]
-        M --> J
+    subgraph NET ["🟠 NETWORK — breach check only"]
+        K -->|"GET /range/ABCDE"| L["HIBP"]
+        L -->|"~800 suffixes"| M["Compare locally"]
     end
+    M --> J
 
-    style LOCAL fill:#0a2e0a,stroke:#22c55e,color:#e8eaf0
-    style NETWORK fill:#2e2a0a,stroke:#f59e0b,color:#e8eaf0
+    classDef loc fill:#faf4e8,stroke:#46702f,color:#2b1d14;
+    classDef net fill:#f3dcc9,stroke:#b2420f,color:#2b1d14;
+    class A,C,D,E,F,H,I,J,K loc;
+    class L,M net;
 ```
 
-### File Structure
+### Project structure
 
-```
+```text
 CryptaKey/
-├── index.html              # Single-page application entry point
+├── index.html                  # Single-page app shell
 ├── css/
-│   ├── design-system.css   # CSS custom properties, reset, utilities
-│   ├── components.css      # Reusable component styles
-│   └── pages.css           # Page layouts, hero, footer
+│   ├── design-system.css       # Tokens (beige/rust + espresso), reset, form controls, buttons
+│   ├── components.css          # Header, nav drawer, tool widgets, responsive rules
+│   └── pages.css               # Landing page, hero, tool layout, footer
 ├── js/
-│   ├── utils.js            # CSPRNG helpers, clipboard, formatting
-│   ├── navigation.js       # SPA routing, theme, mobile menu
-│   ├── generator.js        # Password/passphrase/PIN generator
-│   ├── analyzer.js         # zxcvbn strength analysis
-│   ├── breach-check.js     # HIBP k-anonymity breach lookup
-│   ├── estimator.js        # BigInt crack-time calculator
-│   ├── hash-lab.js         # Web Crypto hashing, HMAC, KDF
-│   ├── encoder.js          # Base64/32/Hex/URL/HTML/ROT13
-│   ├── learn.js            # Educational content renderer
-│   └── app.js              # App initialization
-├── lib/
-│   └── zxcvbn.js           # Bundled zxcvbn v4.4.2 (MIT)
-├── data/
-│   └── eff-wordlist.json   # EFF Diceware large wordlist (CC BY 3.0)
-├── assets/
-│   └── favicon.svg         # SVG favicon
-├── docs/
-│   ├── AUDIT.md            # Previous implementation audit
-│   ├── DECISIONS.md        # Architecture & design decisions
-│   ├── PROVENANCE.md       # Attribution & licensing
-│   ├── PLAN.md             # Implementation plan
-│   ├── PRIVACY.md          # Privacy & data flow documentation
-│   ├── ARCHITECTURE.md     # Technical architecture details
-│   └── THREAT_MODEL.md     # Security threat model
-├── .gitignore
-├── LICENSE                 # MIT License
-├── SECURITY.md             # Security policy
-├── CONTRIBUTING.md         # Contribution guidelines
-└── README.md               # This file
+│   ├── utils.js                # CSPRNG helpers, clipboard, BigInt-safe formatting
+│   ├── navigation.js           # Hash router, theme toggle, mobile drawer
+│   ├── generator.js            # Password / passphrase / PIN generation
+│   ├── analyzer.js             # zxcvbn analysis
+│   ├── breach-check.js         # HIBP k-anonymity lookup
+│   ├── estimator.js            # Crack-time maths + chart
+│   ├── hash-lab.js             # Hashes, HMAC, PBKDF2
+│   ├── encoder.js              # Encoding formats
+│   ├── learn.js                # Educational content
+│   ├── hero.js                 # Live sample password + scroll reveal
+│   └── app.js                  # Bootstrap
+├── lib/zxcvbn.js               # Bundled zxcvbn 4.4.2 (MIT)
+├── data/eff-wordlist.json      # EFF Diceware large wordlist (CC BY 3.0 US)
+├── assets/                     # favicon, animated README banner, social preview
+├── docs/                       # ARCHITECTURE · PRIVACY · THREAT_MODEL · DECISIONS · AUDIT · PROVENANCE · PLAN · screenshots
+├── scripts/check.js            # Zero-dependency project checks (npm run check)
+├── .github/                    # CI + Pages workflows, issue & PR templates
+├── .editorconfig · .gitattributes · .gitignore · .nojekyll
+├── package.json                # Scripts only — no dependencies
+├── CHANGELOG.md · CONTRIBUTING.md · CODE_OF_CONDUCT.md · SECURITY.md · LICENSE
+└── README.md
 ```
 
 ---
 
-## 🧪 Testing & Results
+## 🔐 Security & Privacy
 
-### Test Categories
+| Question | Answer |
+|----------|--------|
+| Are passwords sent to a server? | ❌ **Never** |
+| Analytics / telemetry? | ❌ None |
+| Cookies? | ❌ None |
+| Remote fonts or CDN? | ❌ None — system font stacks, self-hosted libraries |
+| What is stored locally? | Only your theme choice (`ck-theme`) |
+| Network requests? | Only the optional, user-initiated HIBP prefix lookup |
 
-| Category | Scope | Method |
-|----------|-------|--------|
-| Generator | Length bounds, character rules, exclusions, passphrase, PIN, bulk | Manual + automated |
-| Analyzer | Known weak/strong passwords, zxcvbn scoring, policy checks | Manual verification |
-| Breach Check | HIBP API contract, prefix-only URL, timeout, offline handling | Manual + network inspection |
-| Estimator | Small/large values, BigInt overflow, formatting | Manual verification |
-| Hash Lab | Known test vectors (SHA-256), file hashing, HMAC, KDF | Manual + test vector comparison |
-| Encoder | Round-trip all formats, Unicode, malformed input, XSS strings | Manual verification |
-| Privacy | No network requests for local tools (DevTools Network tab) | Manual verification |
-| Accessibility | Keyboard navigation, screen reader, contrast, mobile | Manual browser testing |
+**Controls:** CSPRNG with rejection sampling and Fisher-Yates shuffle · `Math.random()` is never used · user data is rendered via `textContent`/escaping · no `eval`, no inline scripts · `BigInt` prevents overflow · legacy hashes are clearly labelled · zxcvbn is never gated behind arbitrary composition rules (NIST SP 800-63B Rev. 4 aligned).
 
-### Key Verifications
-
-- ✅ `crypto.getRandomValues()` used for all randomness — no `Math.random()`
-- ✅ Fisher-Yates shuffle uses CSPRNG (rejection sampling for unbiased random integers)
-- ✅ Breach check sends only 5-char SHA-1 prefix — verified via browser DevTools Network tab
-- ✅ No passwords, hashes, or inputs appear in localStorage, sessionStorage, or cookies
-- ✅ No network requests from Generator, Analyzer, Estimator, Hash Lab, or Encoder tools
-- ✅ BigInt arithmetic prevents `Infinity` overflow in crack-time calculations
-- ✅ MD5/SHA-1 labeled as legacy with visual warnings
-- ✅ zxcvbn analysis not gated behind mandatory character-class rules
-- ✅ All user content rendered as text (no innerHTML with user data)
-- ✅ Dark/light theme toggle works with `prefers-color-scheme` fallback
-- ✅ Responsive layout tested at 360px, 768px, 1024px+ widths
+See [docs/PRIVACY.md](docs/PRIVACY.md), [docs/THREAT_MODEL.md](docs/THREAT_MODEL.md) and [SECURITY.md](SECURITY.md).
 
 ---
 
-## 🛡️ Security & Privacy
+## 🧪 Testing
 
-### Privacy Guarantee
-
-All password operations run **entirely in your browser**. The only optional network request is the breach check, which sends the first 5 characters of a SHA-1 hash prefix to the [Have I Been Pwned API](https://haveibeenpwned.com/API/v3#PwnedPasswords).
-
-| What | Status |
+| Area | Method |
 |------|--------|
-| Passwords sent to server | ❌ Never |
-| Analytics or telemetry | ❌ None |
-| Cookies | ❌ None |
-| Remote fonts or CDN | ❌ None (all self-hosted) |
-| localStorage | Only theme preference |
-| Network requests | Only HIBP prefix check (user-initiated) |
-
-See [docs/PRIVACY.md](docs/PRIVACY.md) for the complete data flow table.
-
-### Security Controls
-
-- **CSPRNG**: `crypto.getRandomValues()` with rejection sampling for unbiased random integers
-- **No debug mode**: No development server or debug endpoints
-- **XSS prevention**: All user input rendered via `textContent`, never `innerHTML`
-- **No inline JavaScript**: All scripts loaded via `<script src>` with `defer`
-- **Self-hosted dependencies**: zxcvbn.js and fonts bundled locally
-- **Content Security**: No `eval()`, no `document.write()`, no dynamic script injection
-
-See [docs/THREAT_MODEL.md](docs/THREAT_MODEL.md) for the complete threat model.
+| Generator | Length bounds, class rules, exclusions, passphrase, PIN, bulk uniqueness |
+| Analyzer | Known weak/strong samples against zxcvbn output |
+| Breach check | Network inspection confirms prefix-only request; timeout & offline handling |
+| Estimator | Small/huge values, BigInt overflow, formatting |
+| Hash Lab | Known SHA-256 vectors, file hashing, HMAC, PBKDF2 |
+| Encoder | Round-trips, Unicode, malformed input, XSS strings |
+| Privacy | DevTools Network tab — no requests from local-only tools |
+| Responsive | 320 · 390 · 768 · 1024 · 1440 · 2560 px — no horizontal overflow, drawer & theme toggle verified |
+| Accessibility | Keyboard-only run-through, focus order, contrast on both themes |
 
 ---
 
-## 🎯 Challenges & Future Improvements
+## 🧗 Challenges overcome
 
-### Challenges Overcome
+1. **Overflow-safe maths** — `Math.pow()` yields `Infinity`; all crack-time maths uses `BigInt`.
+2. **Unbiased randomness** — naïve modulo skews distributions; rejection sampling fixes it.
+3. **Privacy-preserving breach lookups** — HIBP's k-anonymity range API supports browser CORS, so no proxy server is needed.
+4. **Bundle weight** — zxcvbn is large, so it is lazy-loaded the first time the Analyzer is used.
+5. **One design, every screen** — fluid `clamp()` typography, rem-based layout and a drawer breakpoint chosen so navigation never overflows.
 
-1. **Overflow-safe arithmetic**: JavaScript `Math.pow()` produces `Infinity` for large exponents. Solved using `BigInt` for all crack-time calculations.
-2. **Unbiased random sampling**: Naive modulo of random bytes introduces bias. Implemented rejection sampling to ensure uniform distribution.
-3. **HIBP CORS**: The Pwned Passwords API supports browser CORS, enabling direct client-side breach checks without a proxy server.
-4. **Bundle size vs. functionality**: zxcvbn.js is ~800KB. Mitigated by lazy-loading it only when the Analyzer section is visited.
+## 🗺️ Roadmap
 
-### Future Improvements
-
-- [ ] **Argon2/bcrypt/scrypt demos** via WebAssembly (currently only PBKDF2 via Web Crypto)
-- [ ] **Hash identification** tool (candidate detection from hash length/format)
-- [ ] **Playwright E2E tests** for automated browser testing
-- [ ] **PWA support** (service worker for offline use)
-- [ ] **File integrity checker** (compare hash against known values)
-- [ ] **Password policy builder** (create custom organizational policies)
-- [ ] **Localization** (multi-language support)
+- [ ] Argon2 / bcrypt / scrypt demos via WebAssembly
+- [ ] Hash-type identification tool
+- [ ] Playwright end-to-end tests in CI
+- [ ] PWA / offline service worker
+- [ ] Custom password-policy builder
+- [ ] Localisation
 
 ---
 
-## 📝 Conclusion
+## 🙌 Contributing
 
-CryptaKey demonstrates that a robust password security toolkit can be built with **zero server-side processing**, providing genuine privacy guarantees through architectural choices rather than just policy promises. Every sensitive operation runs in the browser using standardized Web Crypto APIs, making the privacy claims verifiable by anyone with browser DevTools.
-
-The project showcases practical application security engineering: CSPRNG with rejection sampling, k-anonymity for breach checks, BigInt arithmetic to prevent overflow, and clear separation between educational demonstrations and security recommendations.
-
----
+Contributions are welcome — please read [CONTRIBUTING.md](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUCT.md) first. Notable changes are tracked in [CHANGELOG.md](CHANGELOG.md). Security issues: see [SECURITY.md](SECURITY.md).
 
 ## 📚 References
 
 - [NIST SP 800-63B Rev. 4 — Digital Identity Guidelines](https://pages.nist.gov/800-63-4/sp800-63b.html)
 - [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
-- [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 - [Have I Been Pwned — Pwned Passwords API](https://haveibeenpwned.com/API/v3#PwnedPasswords)
-- [Dropbox zxcvbn](https://github.com/dropbox/zxcvbn)
-- [EFF Diceware Wordlists](https://www.eff.org/dice)
-- [MDN Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)
-
----
+- [Dropbox zxcvbn](https://github.com/dropbox/zxcvbn) · [EFF Diceware](https://www.eff.org/dice) · [MDN Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE).
-
-### Third-Party Licenses
-
-| Component | License | Attribution |
-|-----------|---------|------------|
-| [zxcvbn](https://github.com/dropbox/zxcvbn) | MIT | Copyright (c) 2012-2016 Dan Wheeler and Dropbox, Inc. |
-| [EFF Diceware Wordlist](https://www.eff.org/dice) | CC BY 3.0 US | Electronic Frontier Foundation |
+[MIT](LICENSE). Third-party: **zxcvbn** (MIT, © Dan Wheeler & Dropbox) · **EFF Diceware wordlist** (CC BY 3.0 US, © EFF).
 
 ---
 
 <div align="center">
 
-**Built by [Hamid Rafique](https://github.com/hamidrafique2-boop)**
+**Built with care by [Hamid Rafique](https://github.com/hamidrafique2-boop)** · Cybersecurity Internship Project · © 2026
 
-© 2026 Hamid Rafique
+*If CryptaKey helped you, a ⭐ is always appreciated.*
 
 </div>

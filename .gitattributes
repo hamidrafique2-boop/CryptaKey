@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.svg text
+lib/zxcvbn.js linguist-vendored
+data/*.json linguist-vendored
+docs/screenshots/* linguist-documentation

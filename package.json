@@ -1,0 +1,24 @@
+{
+  "name": "cryptakey",
+  "version": "1.1.0",
+  "description": "Privacy-first, browser-only password security studio — generate, analyze, breach-check, hash and encode, with no server.",
+  "private": true,
+  "license": "MIT",
+  "author": "Hamid Rafique <https://github.com/hamidrafique2-boop>",
+  "homepage": "https://hamidrafique2-boop.github.io/CryptaKey/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamidrafique2-boop/CryptaKey.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hamidrafique2-boop/CryptaKey/issues"
+  },
+  "keywords": ["password", "security", "privacy", "webcrypto", "zxcvbn", "k-anonymity", "static-site"],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "npx --yes serve . -l 8000",
+    "check": "node scripts/check.js"
+  }
+}

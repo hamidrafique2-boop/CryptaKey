@@ -7,19 +7,25 @@
     'use strict';
 
     // ---- Theme ----
+    // Default is the beige & rust palette ("light"); the espresso theme is opt-in.
+    function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        const meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', theme === 'dark' ? '#1e1611' : '#faf4e8');
+    }
+
     function initTheme() {
         const toggle = document.getElementById('theme-toggle');
-        const saved = localStorage.getItem('ck-theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const theme = saved || (prefersDark ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
+        let saved = null;
+        try { saved = localStorage.getItem('ck-theme'); } catch (e) { /* storage blocked */ }
+        applyTheme(saved === 'dark' ? 'dark' : 'light');
 
         if (toggle) {
             toggle.addEventListener('click', () => {
                 const current = document.documentElement.getAttribute('data-theme');
                 const next = current === 'dark' ? 'light' : 'dark';
-                document.documentElement.setAttribute('data-theme', next);
-                localStorage.setItem('ck-theme', next);
+                applyTheme(next);
+                try { localStorage.setItem('ck-theme', next); } catch (e) { /* storage blocked */ }
             });
         }
     }
@@ -91,6 +97,19 @@
             toggle.addEventListener('click', () => {
                 const isOpen = nav.classList.toggle('open');
                 toggle.setAttribute('aria-expanded', isOpen);
+            });
+
+            // Escape closes the drawer and returns focus to the toggle
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && nav.classList.contains('open')) {
+                    closeMobileNav();
+                    toggle.focus();
+                }
+            });
+
+            // Close the drawer if the viewport grows past the mobile breakpoint
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 1000) closeMobileNav();
             });
         }
     }

@@ -1,41 +1,52 @@
 # Contributing to CryptaKey
 
-Thank you for your interest in contributing! Here's how to get started.
+Thanks for your interest! Please read the [Code of Conduct](CODE_OF_CONDUCT.md) first.
 
-## Getting Started
+## Getting started
 
-1. Fork the repository
-2. Clone your fork: `git clone https://github.com/YOUR-USERNAME/CryptaKey.git`
-3. Open `index.html` in a browser (or use `npx serve .` for a local server)
-4. Make your changes
-5. Test thoroughly in the browser
-6. Submit a pull request
+```bash
+git clone https://github.com/YOUR-USERNAME/CryptaKey.git
+cd CryptaKey
+npm start          # serves http://localhost:8000 (or: python3 -m http.server 8000)
+npm run check      # project checks — must pass before you open a PR
+```
+
+No dependencies are installed; `npm` is only used to run scripts. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for how the project is organised.
+
+## Workflow
+
+1. Fork and create a branch: `feat/short-name`, `fix/short-name` or `docs/short-name`.
+2. Make focused changes; update docs and [CHANGELOG.md](CHANGELOG.md) when behaviour changes.
+3. Use [Conventional Commits](https://www.conventionalcommits.org/) (`feat:`, `fix:`, `docs:`, `style:`, `refactor:`, `chore:`).
+4. Open a pull request and fill in the template.
 
 ## Guidelines
 
-### Code Style
-- Use vanilla JavaScript (ES2020+) — no frameworks or transpilers
-- Use `const` and `let`, never `var`
-- Use template literals for string interpolation
-- All user-facing text must be escaped with `textContent` (never `innerHTML` with user data)
+### Code style
+- Vanilla JavaScript (ES2020+), no frameworks or transpilers; `const`/`let`, never `var`; template literals.
+- One IIFE module per tool; keep global state to the `CK` namespace.
+- Follow `.editorconfig` (4 spaces, LF, UTF-8).
 
 ### Security
-- Never use `Math.random()` for security-sensitive operations — use `crypto.getRandomValues()`
-- Never send passwords, hashes, or sensitive input to any server endpoint
-- Never store secrets in localStorage, sessionStorage, cookies, or URLs
-- All third-party dependencies must be self-hosted (no CDN)
+- Never use `Math.random()` — use `crypto.getRandomValues()` / `CK.secureRandomInt()`.
+- Never send passwords, hashes or inputs to any server; never store secrets in storage, cookies or URLs.
+- Render user data with `textContent` (or `CK.escapeHtml`) — never raw `innerHTML`.
+- No inline scripts, no CDN or third-party requests; vendor dependencies locally with their licence.
 
-### Accessibility
-- All interactive elements must be keyboard-accessible
-- Use semantic HTML elements
-- Include ARIA labels where needed
-- Ensure sufficient color contrast (WCAG AA)
+### Design system
+- Use CSS custom properties from `css/design-system.css`; never hard-code colours in components.
+- Every change must look right in **both** themes (Beige & Rust and Espresso & Rust).
+- Keep text contrast ≥ 4.5 : 1 (WCAG AA).
+
+### Accessibility & responsiveness
+- Everything must be keyboard-operable with visible focus; use semantic HTML and ARIA where needed.
+- Test at **320, 390, 768, 1024, 1440 and 2560 px** — there must be no horizontal page scroll.
+- Respect `prefers-reduced-motion`.
 
 ### Testing
-- Test all changes in Chrome, Firefox, and Safari
-- Test at mobile (360px), tablet (768px), and desktop (1024px+) widths
-- Verify no network requests are made from local-only tools (check DevTools Network tab)
+- Run `npm run check`.
+- Manually test in Chrome, Firefox and Safari.
+- Confirm in DevTools → Network that local-only tools make **no** requests.
 
-## Reporting Issues
-
-Use [GitHub Issues](https://github.com/hamidrafique2-boop/CryptaKey/issues) with clear descriptions and steps to reproduce.
+## Reporting issues
+Use the issue templates. Never paste real passwords. Security issues: see [SECURITY.md](SECURITY.md).

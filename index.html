@@ -1,15 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#faf4e8">
+    <meta name="color-scheme" content="light dark">
     <meta name="description" content="CryptaKey — A privacy-first password security studio. Generate strong passwords, analyze strength, check breaches, explore hashing, and learn cryptography. All processing happens in your browser.">
     <meta name="author" content="Hamid Rafique">
     <meta property="og:title" content="CryptaKey — Password Security Studio">
     <meta property="og:description" content="Generate, analyze, and secure passwords entirely in your browser. No data ever leaves your device.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="assets/og-image.png">
+    <meta property="og:url" content="https://hamidrafique2-boop.github.io/CryptaKey/">
+    <meta property="og:site_name" content="CryptaKey">
+    <meta property="og:image" content="https://hamidrafique2-boop.github.io/CryptaKey/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="CryptaKey — Password Security Studio">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CryptaKey — Password Security Studio">
+    <meta name="twitter:description" content="Generate, analyze, and secure passwords entirely in your browser.">
+    <meta name="twitter:image" content="https://hamidrafique2-boop.github.io/CryptaKey/assets/og-image.png">
+    <link rel="canonical" href="https://hamidrafique2-boop.github.io/CryptaKey/">
     <title>CryptaKey — Password Security Studio</title>
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="stylesheet" href="css/design-system.css">
@@ -65,6 +76,23 @@
 
         <!-- ==================== HOME / LANDING ==================== -->
         <section class="page page--active" id="home" data-page="home">
+            <!-- Decorative flowing contour lines -->
+            <div class="hero-waves" aria-hidden="true">
+                <svg viewBox="0 0 1200 420" fill="none" stroke="currentColor" stroke-width="1.2" preserveAspectRatio="xMidYMin slice">
+                    <defs>
+                        <path id="wave-line" d="M-40 260 C 200 90, 420 380, 640 230 S 1000 60, 1260 200"/>
+                    </defs>
+                    <use href="#wave-line" y="0"/>
+                    <use href="#wave-line" y="18"/>
+                    <use href="#wave-line" y="36"/>
+                    <use href="#wave-line" y="54"/>
+                    <use href="#wave-line" y="72"/>
+                    <use href="#wave-line" y="90"/>
+                    <use href="#wave-line" y="108"/>
+                    <use href="#wave-line" y="126"/>
+                </svg>
+            </div>
+
             <div class="hero">
                 <div class="hero-content">
                     <div class="hero-badge">Privacy-First · Browser-Only · Open Source</div>
@@ -80,81 +108,122 @@
                         </a>
                         <a href="#learn" class="btn btn--outline btn--lg">Learn More</a>
                     </div>
+                    <ul class="hero-trust" role="list">
+                        <li>No accounts</li>
+                        <li>No cookies or tracking</li>
+                        <li>Works offline</li>
+                    </ul>
                 </div>
-                <div class="hero-visual" aria-hidden="true">
-                    <div class="hero-grid">
-                        <div class="hero-card hero-card--gen">
-                            <div class="hero-card-icon">🔐</div>
-                            <div class="hero-card-label">Generator</div>
+
+                <div class="hero-visual">
+                    <div class="vault-card" role="group" aria-label="Live sample password generated in your browser">
+                        <div class="vault-top">
+                            <div class="vault-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+                            <div class="vault-tag">crypto.getRandomValues()</div>
                         </div>
-                        <div class="hero-card hero-card--analyze">
-                            <div class="hero-card-icon">📊</div>
-                            <div class="hero-card-label">Analyzer</div>
+                        <div class="vault-label">Live sample · generated locally</div>
+                        <div class="vault-password-row">
+                            <div class="vault-password" id="hero-password" aria-live="off">••••••••••••••••••</div>
+                            <button type="button" class="vault-refresh" id="hero-refresh" aria-label="Generate another sample password" title="Generate another sample">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 11-3-6.7"/><path d="M21 3v6h-6"/></svg>
+                            </button>
                         </div>
-                        <div class="hero-card hero-card--breach">
-                            <div class="hero-card-icon">🛡️</div>
-                            <div class="hero-card-label">Breach Check</div>
+                        <div class="vault-meter" aria-hidden="true"><div class="vault-meter-fill" id="hero-meter"></div></div>
+                        <div class="vault-meter-row">
+                            <span>Strength: <strong id="hero-strength">Excellent</strong></span>
+                            <span id="hero-entropy">— bits</span>
                         </div>
-                        <div class="hero-card hero-card--hash">
-                            <div class="hero-card-icon">🧬</div>
-                            <div class="hero-card-label">Hash Lab</div>
+                        <div class="vault-chips" aria-hidden="true">
+                            <span class="vault-chip">CSPRNG</span>
+                            <span class="vault-chip">Rejection sampling</span>
+                            <span class="vault-chip">0 bytes sent</span>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Stats strip -->
+            <div class="stats reveal">
+                <div class="stats-grid">
+                    <div class="stat"><div class="stat-value">7</div><div class="stat-label">Interactive modules</div></div>
+                    <div class="stat"><div class="stat-value">0</div><div class="stat-label">Servers</div></div>
+                    <div class="stat"><div class="stat-value">7,776</div><div class="stat-label">Diceware words</div></div>
+                    <div class="stat"><div class="stat-value">5</div><div class="stat-label">Chars of hash sent</div></div>
+                </div>
+            </div>
+
             <!-- Feature Cards -->
             <div class="features" id="features">
+                <span class="section-eyebrow">The toolkit</span>
                 <h2 class="section-title">Security Tools</h2>
                 <p class="section-desc">Every tool runs entirely in your browser. Your secrets never touch a server.</p>
                 <div class="feature-grid">
-                    <a href="#generator" class="feature-card" id="feature-generator">
+                    <a href="#generator" class="feature-card reveal" id="feature-generator">
                         <div class="feature-card-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
                         </div>
                         <h3>Password Generator</h3>
                         <p>Cryptographically secure random passwords, passphrases, and PINs with configurable rules.</p>
+                        <span class="feature-card-link">Open tool</span>
                     </a>
-                    <a href="#analyzer" class="feature-card" id="feature-analyzer">
+                    <a href="#analyzer" class="feature-card reveal" id="feature-analyzer">
                         <div class="feature-card-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                         </div>
                         <h3>Strength Analyzer</h3>
                         <p>Real-time strength scoring powered by zxcvbn — detects patterns, dictionary words, and common substitutions.</p>
+                        <span class="feature-card-link">Open tool</span>
                     </a>
-                    <a href="#breach-check" class="feature-card" id="feature-breach">
+                    <a href="#breach-check" class="feature-card reveal" id="feature-breach">
                         <div class="feature-card-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                         </div>
                         <h3>Breach Check</h3>
                         <p>Check if a password appears in known data breaches using k-anonymity — only a hash prefix leaves your browser.</p>
+                        <span class="feature-card-link">Open tool</span>
                     </a>
-                    <a href="#estimator" class="feature-card" id="feature-estimator">
+                    <a href="#estimator" class="feature-card reveal" id="feature-estimator">
                         <div class="feature-card-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                         </div>
                         <h3>Crack-Time Estimator</h3>
                         <p>Calculate how long it would take to brute-force a password under different attacker scenarios.</p>
+                        <span class="feature-card-link">Open tool</span>
                     </a>
-                    <a href="#hash-lab" class="feature-card" id="feature-hash">
+                    <a href="#hash-lab" class="feature-card reveal" id="feature-hash">
                         <div class="feature-card-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8h16M4 16h16M8 4v16M16 4v16"/></svg>
                         </div>
                         <h3>Hash & KDF Lab</h3>
-                        <p>Compute SHA-256/384/512, HMAC, and explore password hashing with Argon2, bcrypt, and PBKDF2.</p>
+                        <p>Compute SHA-256/384/512 and HMAC, and see how salted, adaptive password hashing works with PBKDF2.</p>
+                        <span class="feature-card-link">Open tool</span>
                     </a>
-                    <a href="#encoder" class="feature-card" id="feature-encoder">
+                    <a href="#encoder" class="feature-card reveal" id="feature-encoder">
                         <div class="feature-card-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
                         </div>
                         <h3>Encoder / Decoder</h3>
                         <p>Base64, Base32, Hex, URL encoding, HTML entities, and ROT13 — with one-click swap and copy.</p>
+                        <span class="feature-card-link">Open tool</span>
                     </a>
                 </div>
             </div>
 
+            <!-- How it works -->
+            <div class="steps">
+                <span class="section-eyebrow">Workflow</span>
+                <h2 class="section-title">From weak to bulletproof</h2>
+                <p class="section-desc">A simple loop that mirrors how security engineers think about credentials.</p>
+                <ol class="steps-grid" role="list">
+                    <li class="step reveal"><h3>Generate</h3><p>Create a random password, an EFF Diceware passphrase or a PIN using the browser's CSPRNG.</p></li>
+                    <li class="step reveal"><h3>Analyze</h3><p>See real-world strength with zxcvbn — patterns, dictionary words and keyboard walks are caught.</p></li>
+                    <li class="step reveal"><h3>Verify</h3><p>Check breach exposure with k-anonymity, then estimate how long attackers would need.</p></li>
+                    <li class="step reveal"><h3>Understand</h3><p>Explore hashing, KDFs and encodings in the lab, and learn why each defence exists.</p></li>
+                </ol>
+            </div>
+
             <!-- Privacy Promise -->
-            <div class="privacy-banner">
+            <div class="privacy-banner reveal">
                 <div class="privacy-banner-inner">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     <div>
@@ -662,6 +731,7 @@
     <script src="js/hash-lab.js" defer></script>
     <script src="js/encoder.js" defer></script>
     <script src="js/learn.js" defer></script>
+    <script src="js/hero.js" defer></script>
     <script src="js/app.js" defer></script>
 </body>
 </html>

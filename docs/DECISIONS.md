@@ -84,7 +84,7 @@ Flask would add no real value and would create a privacy liability. Removing the
 | Hashing | Web Crypto API + js-sha1 (for HIBP) | Native performance, SHA-1 only for breach prefix |
 | Strength | zxcvbn.js (bundled, MIT) | Industry standard, Dropbox-maintained |
 | Wordlist | EFF Diceware large wordlist (CC BY 3.0) | 7,776 words, well-known, properly licensed |
-| Typography | Inter font (self-hosted, OFL 1.1) | Modern, readable, no CDN dependency |
+| Typography | System font stacks (serif display + sans body) | No remote or bundled font files; privacy-preserving and instant |
 | Build | None (static files) | Simplicity, no transpilation needed |
 | Hosting | GitHub Pages | Free, reliable, HTTPS included |
 | CI | GitHub Actions | Test, lint, deploy pipeline |
@@ -107,7 +107,9 @@ The existing PasswordNexus logged all tool usage to SQLite with detail strings. 
 
 ## 5. Design Direction
 
-**Aesthetic:** Professional security console — clean dark theme with light option.
+> **Update (v1.1.0, 2026-10-16):** the visual identity was redesigned to **Beige & Rust** (default) with an **Espresso & Rust** dark theme; typography moved to system serif + sans stacks (no font files); layout became fully fluid and rem-based (320 px → 4K). The original direction below is kept for history.
+
+**Aesthetic (original):** Professional security console — clean dark theme with light option.
 
 - **Primary palette:** Deep slate/navy backgrounds, cyan-blue accents, warm amber for warnings
 - **Typography:** Inter (self-hosted), clear hierarchy

@@ -1,29 +1,33 @@
 # Security Policy
 
-## Reporting a Vulnerability
+## Reporting a vulnerability
 
-If you discover a security vulnerability in CryptaKey, please report it responsibly:
+Please report vulnerabilities **privately**:
 
-1. **Email**: Open a [GitHub Issue](https://github.com/hamidrafique2-boop/CryptaKey/issues) with the label `security`
-2. **Do not** include sensitive details in public issues — provide a general description and we will coordinate privately
+1. Use GitHub's private reporting: **Security → Report a vulnerability** on the repository
+   (<https://github.com/hamidrafique2-boop/CryptaKey/security/advisories/new>).
+2. If that is unavailable, open a public issue labelled `security` with a *general* description only — no exploit details — and the maintainer will arrange a private channel.
+
+You can expect an acknowledgement within a few days. Please allow reasonable time for a fix before public disclosure.
 
 ## Scope
 
-CryptaKey is a client-side educational tool. The security scope includes:
+CryptaKey is a client-side educational tool.
 
-- **In scope**: XSS vulnerabilities, data leaks to network/storage, CSPRNG implementation flaws, privacy violations
-- **Out of scope**: Server-side vulnerabilities (there is no server), denial-of-service against the user's own browser
+- **In scope:** XSS, data leaks to the network or storage, CSPRNG implementation flaws, privacy violations, supply-chain issues in bundled files.
+- **Out of scope:** server-side vulnerabilities (there is no server) and denial-of-service against the user's own browser.
 
-## Architecture Security Notes
+## Architecture security notes
 
-- All sensitive operations run locally in the browser
-- No passwords, hashes, or inputs are sent to any server (except the 5-char HIBP prefix check)
-- No cookies, analytics, or telemetry
-- All dependencies are self-hosted (no CDN)
-- The HIBP breach check uses k-anonymity with the `Add-Padding: true` header
+- All sensitive operations run locally in the browser.
+- No passwords, hashes or inputs are sent to any server except the 5-character HIBP prefix (breach check, user-initiated, `Add-Padding: true`).
+- No cookies, analytics or telemetry; no CDN — all dependencies are self-hosted.
+- Only the theme preference (`ck-theme`) is stored locally.
+- See [docs/THREAT_MODEL.md](docs/THREAT_MODEL.md) and [docs/PRIVACY.md](docs/PRIVACY.md).
 
-## Supported Versions
+## Supported versions
 
 | Version | Supported |
 |---------|-----------|
-| Latest  | ✅        |
+| 1.x (latest) | ✅ |
+| < 1.0 | ❌ |

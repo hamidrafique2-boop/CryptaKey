@@ -34,7 +34,7 @@ All third-party libraries will be:
 |-----------|---------|---------|--------|
 | zxcvbn.js | MIT | Password strength estimation | Will verify & self-host |
 | EFF Diceware wordlist | CC BY 3.0 US | Passphrase generation | Will verify & attribute |
-| Inter font | OFL 1.1 | Typography | Will self-host |
+| ~~Inter font~~ | — | Not used — system font stacks instead | Removed in v1.1.0 |
 
 ---
 

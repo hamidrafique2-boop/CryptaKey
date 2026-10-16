@@ -1,28 +1,26 @@
 # Dependencies
 node_modules/
 
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-venv/
+# Environment
 .env
+.env.*
 
-# Database (legacy)
-*.db
-log.txt
+# Logs
+*.log
+npm-debug.log*
 
 # OS
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# IDE
+# IDE / editor
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# Build
+# Build output / archives
 dist/
 build/
+*.zip
